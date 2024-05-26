@@ -1,32 +1,33 @@
 class Solution {
-    public boolean isValid(String s) {
-        if(s.length() % 2 != 0){
-            return false;// Closing bracket with no corresponding opening bracket
+    public String longestCommonPrefix(String[] strs) {
+
+        if(strs == null || strs.length == 0){
+            return "";
         }
 
-        char[] cha = new char[s.length()];
-        int top = -1;// Pointer to the top of the "stack"
-
-        for(char c : s.toCharArray()){
-            if(c == '(' || c == '{' || c == '['){
-                cha[++top] = c; //Push onto the "stack"
-            }else{
-                if(top == -1){
-                    return false;// Closing bracket with no corresponding opening bracket
-                }
-                char topChar = cha[top--];
-                if((c == ')' && topChar != '(') || (c == '}' && topChar != '{') || (c == ']' && topChar != '[')){
-                    return false;// Mismatched opening and closing brackets
+        String prefix = strs[0];
+        for (int i=1; i<strs.length; i++){
+            while(strs[i].indexOf(prefix) != 0){
+                prefix = prefix.substring(0, prefix.length() - 1);
+                if(prefix.isEmpty()){
+                    return "";
                 }
             }
         }
-        return top == -1;// If stack is empty, it's valid  
+        return prefix;   
     }
 
     public static void main(String args[]){
         Scanner scan = new Scanner(System.in);
-        String str = scan.nextLine();
+        int n = scan.nextInt();
+        scan.nextLine();
+
+        String[] strings = new String[n];
+        for(int i = 0; i< n; i++){
+            strings[i] = scan.nextLine();
+        }
         Solution sol = new Solution();
-        System.out.println(sol.isValid(str));
+        sol.longestCommonPrefix(strings);
+        scan.close();
     }
 }

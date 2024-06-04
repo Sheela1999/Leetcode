@@ -25,6 +25,6 @@ class Solution {
         if(root1 == null || root2 == null || root1.val != root2.val){
             return false;
         }
-        return sym(root1.left, root2.right) && sym(root1.left,root2.right);
+        return sym(root1.left, root2.right) && sym(root1.right,root2.left);
     }
 }

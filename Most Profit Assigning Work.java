@@ -54,3 +54,33 @@ class Solution {
         scan.close();
     }
 }
+
+// or we can use this main method also
+
+public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Reading inputs
+        System.out.println("Enter difficulties: ");
+        String[] diffStr = scanner.nextLine().split(",");
+        int[] difficulty = new int[diffStr.length];
+        for (int i = 0; i < diffStr.length; i++) {
+            difficulty[i] = Integer.parseInt(diffStr[i].trim());
+        }
+
+        System.out.println("Enter profits: ");
+        String[] profitStr = scanner.nextLine().split(",");
+        int[] profit = new int[profitStr.length];
+        for (int i = 0; i < profitStr.length; i++) {
+            profit[i] = Integer.parseInt(profitStr[i].trim());
+        }
+
+        System.out.println("Enter worker abilities: ");
+        String[] workerStr = scanner.nextLine().split(",");
+        int[] worker = new int[workerStr.length];
+        for (int i = 0; i < workerStr.length; i++) {
+            worker[i] = Integer.parseInt(workerStr[i].trim());
+        }
+
+        System.out.println("Maximum profit: " + maxProfitAssignment(difficulty, profit, worker));
+    }

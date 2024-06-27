@@ -12,7 +12,7 @@ public class StarGraphCenter {
             edges[i][1] = scanner.nextInt();
         }
 
-        // Finding the center of the star graph
+        // Finding the center of the star graph..
         int center = findCenter(edges);
         System.out.println(center);
     }

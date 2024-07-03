@@ -10,7 +10,7 @@ public class MinDifference {
         // Initialize the array with the given size
         int[] nums = new int[n];
 
-        // Read the elements of the array
+        // Read the elements of the array...
         System.out.println("Enter the elements of the array:");
         for (int i = 0; i < n; i++) {
             nums[i] = scanner.nextInt();
